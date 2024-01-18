@@ -1,8 +1,12 @@
 <div class="row">
   <div class="col md 5">
-    <app-recipe-list></app-recipe-list>
+    <app-recipe-list (recipeSelected)="onRecipeSelected($event)"></app-recipe-list>
   </div>
   <div class="col md 7">
-    <app-recipe-detail></app-recipe-detail>
+    @if(recipeSelected.name!=''){
+      <app-recipe-detail [recipe]="recipeSelected"></app-recipe-detail>
+    }@else {
+      <p>Select a Recipe</p>
+    }
   </div>
 </div>

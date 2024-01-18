@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { RecipeItemComponent } from './recipe-item/recipe-item.component';
 import { Recipe } from '../recipe.model';
 
@@ -10,6 +10,7 @@ import { Recipe } from '../recipe.model';
   styleUrl: './recipe-list.component.css'
 })
 export class RecipeListComponent {
+  @Output() recipeSelected = new EventEmitter<Recipe>();
   recipes: Recipe[] = [
     new Recipe(
       'Cheesecake',
@@ -22,5 +23,9 @@ export class RecipeListComponent {
       'https://mojo.generalmills.com/api/public/content/DghZOSz42kCwArruP2Z_IA_gmi_hi_res_jpeg.jpeg'
     )
   ];
+
+  onRecipeSelected(recipe: Recipe) {
+    this.recipeSelected.emit(recipe);
+  }
 
 }
