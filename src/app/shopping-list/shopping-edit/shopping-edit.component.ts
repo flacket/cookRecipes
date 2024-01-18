@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Ingredient } from '../../shared/ingredient.model';
 @Component({
   selector: 'app-shopping-edit',
   standalone: true,
@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './shopping-edit.component.css'
 })
 export class ShoppingEditComponent {
+  @Output() addIngredient = new EventEmitter<Ingredient>();
 
+  onAddIngredient (name:string, amount:string) {
+    this.addIngredient.emit(new Ingredient(name, Number(amount)));
+  }
 }
