@@ -8,7 +8,7 @@
   <div class="col-xs-12">
     <ul class="list-group">
     @for (recipeItem of recipes; track recipeItem.name) {
-      <app-recipe-item [recipe]="recipeItem" (recipeSelected)="onRecipeSelected(recipeItem)"></app-recipe-item>
+      <app-recipe-item [recipe]="recipeItem"></app-recipe-item>
     }
   </ul>
   </div>

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
+import { RecipeService } from './recipe.service';
 import { Recipe } from './recipe.model';
 
 @Component({
@@ -8,16 +9,17 @@ import { Recipe } from './recipe.model';
   standalone: true,
   imports: [RecipeListComponent, RecipeDetailComponent],
   templateUrl: './recipes.component.html',
-  styleUrl: './recipes.component.css'
+  styleUrl: './recipes.component.css',
+  providers: [RecipeService]
 })
-export class RecipesComponent {
-  recipeSelected: Recipe = {
-    name: '',
-    description: '',
-    imagePath: ''
-  };
+export class RecipesComponent implements OnInit {
+  recipeSelected: Recipe = new Recipe('', '', '');
 
-  onRecipeSelected( recipe: Recipe) {
-    this.recipeSelected = recipe
+  constructor (private RecipeService: RecipeService) {}
+
+  ngOnInit(): void {
+    this.RecipeService.recipeSelected.subscribe((recipe: Recipe) => {
+      this.recipeSelected = recipe;
+    });
   }
 }

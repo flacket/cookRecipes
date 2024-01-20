@@ -10,9 +10,5 @@ import { DropdownDirective } from '../../shared/dropdown.directive';
   styleUrl: './recipe-detail.component.css'
 })
 export class RecipeDetailComponent {
-  @Input() recipe: Recipe = {
-    name: '',
-    description: '',
-    imagePath: ''
-  };
+  @Input() recipe: Recipe = new Recipe('','','');
 }
