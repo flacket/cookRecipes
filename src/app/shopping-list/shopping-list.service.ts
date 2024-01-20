@@ -16,6 +16,14 @@ export class ShoppingListService {
     return this.ingredients;
   }
   addIngredient(newIngredient: Ingredient) {
-    this.ingredients.push(newIngredient);
+    let notFound: boolean = true;
+
+    for(let index = 0; index < this.ingredients.length; index++) {
+      if(this.ingredients[index].name === newIngredient.name){
+        this.ingredients[index].amount += newIngredient.amount;
+        notFound = false;
+      }
+    }
+    if (notFound) this.ingredients.push(newIngredient);
   }
 }
