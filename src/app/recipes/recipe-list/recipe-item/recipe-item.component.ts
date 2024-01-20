@@ -10,7 +10,7 @@ import { RecipeService } from '../../recipe.service';
   styleUrl: './recipe-item.component.css'
 })
 export class RecipeItemComponent {
-  @Input() recipe: Recipe = new Recipe('','','');
+  @Input() recipe: Recipe = new Recipe('','','', []);
 
   constructor (private RecipeService: RecipeService) {}
 

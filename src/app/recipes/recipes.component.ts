@@ -13,7 +13,7 @@ import { Recipe } from './recipe.model';
   providers: [RecipeService]
 })
 export class RecipesComponent implements OnInit {
-  recipeSelected: Recipe = new Recipe('', '', '');
+  recipeSelected: Recipe = new Recipe('', '', '', []);
 
   constructor (private RecipeService: RecipeService) {}
 

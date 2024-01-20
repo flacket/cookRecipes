@@ -30,6 +30,13 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    Ingredients
+    <h6>Ingredients:</h6>
+    <ul class="list-group">
+      @for(ingredient of recipe.ingredients; track ingredient.name){
+        <li class="list-group-item">
+          {{ ingredient.name }}: {{ ingredient.amount }}
+        </li>
+      }
+    </ul>
   </div>
 </div>
