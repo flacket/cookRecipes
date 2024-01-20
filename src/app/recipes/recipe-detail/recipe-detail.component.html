@@ -11,16 +11,19 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <div class="btn-group" role="group">
+    <!--<div class="btn-group" role="group">
       <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
         Manage Recipe
       </button>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Add to Shopping List</a></li>
-        <li><a class="dropdown-item" href="#">Edit Recipe</a></li>
-        <li><a class="dropdown-item" href="#">Delete Recipe</a></li>
+        <li><a class="dropdown-item" style="cursor: pointer;" (click)="onAddShoppingList()">Add to Shopping List</a></li>
+        <li><a class="dropdown-item" style="cursor: pointer;">Edit Recipe</a></li>
+        <li><a class="dropdown-item" style="cursor: pointer;">Delete Recipe</a></li>
       </ul>
-    </div>
+    </div>-->
+    <button class="btn btn-success" (click)="onAddShoppingList()">Add to Shopping List</button>
+    <button class="btn btn-primary" >Edit Recipe</button>
+    <button class="btn btn-danger" >Delete Recipe</button>
   </div>
 </div>
 <div class="row">

@@ -6,8 +6,8 @@ import { Ingredient } from '../shared/ingredient.model';
 })
 export class ShoppingListService {
   private ingredients: Ingredient[] = [
-    new Ingredient('Avena', 250),
-    new Ingredient('Huevos', 2)
+    new Ingredient('avena', 250),
+    new Ingredient('huevo', 2)
   ];
 
   constructor() { }
