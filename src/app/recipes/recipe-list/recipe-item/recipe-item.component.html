@@ -1,4 +1,7 @@
-<a href="#" class="list-group-item" (click)="onSelected()">
+<a
+  [routerLink]="[index]"
+  routerLinkActive="active"
+  class="list-group-item">
   <div class="row">
     <div class="col-md-9">
     <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
@@ -7,5 +10,10 @@
   <div class="col-md-auto ms-auto">
     <img [src]="recipe.imagePath" alt="{{ recipe.name}}" class="img-responsive" style="max-height: 50px;">
   </div></div>
-
 </a>
+
+<style>
+  .a {
+    cursor: pointer;
+  }
+</style>

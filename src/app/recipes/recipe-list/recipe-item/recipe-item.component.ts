@@ -1,20 +1,22 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Recipe } from '../../recipe.model';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { RecipeService } from '../../recipe.service';
 
 @Component({
   selector: 'app-recipe-item',
   standalone: true,
-  imports: [],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './recipe-item.component.html',
   styleUrl: './recipe-item.component.css'
 })
-export class RecipeItemComponent {
-  @Input() recipe: Recipe = new Recipe('','','', []);
+export class RecipeItemComponent implements OnInit {
+  recipe: Recipe = new Recipe('','','', []);
+  @Input() index: number = -1;
 
-  constructor (private RecipeService: RecipeService) {}
+  constructor(private recipeService: RecipeService) {}
 
-  onSelected() {
-    this.RecipeService.recipeSelected.emit(this.recipe);
+  ngOnInit(): void {
+    this.recipe = this.recipeService.getRecipe(this.index);
   }
 }
