@@ -19,10 +19,4 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'cookRecipes';
-  loadedPage = 'recipe';
-
-  onNavigate(page: string) {
-    this.loadedPage = page;
-  }
 }
